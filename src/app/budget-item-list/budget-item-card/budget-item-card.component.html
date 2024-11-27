@@ -1,12 +1,12 @@
-<div class="root">
-    <div class="budget-item" [ngClass]="isIncome() ? 'income' : 'expense'">
+<div class="root" (click)="onCardClick(item)">
+    <div class="budget-item" [ngClass]="(item?.amount ?? 0) > 0 ? 'income' : 'expense'">
         <div class="description">
-            <p>item</p>
+            <p>{{item?.description}}</p>
         </div>
         <div class="amount">
-            <p>88</p>
+            <p>{{item?.amount}}</p>
         </div>
     </div>
 
-    <div class="x-icon-button"></div>
+    <div class="x-icon-button" (click)="handleDelete()"></div>
 </div>
